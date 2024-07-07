@@ -15,11 +15,16 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
                 .authorizeHttpRequests(auth-> auth
-                        .anyRequest()
-                        .authenticated()
+                        .requestMatchers("/login**","/logout**").permitAll()
+                        .anyRequest().authenticated()
                 );
         http
-                .formLogin(AbstractAuthenticationFilterConfigurer::permitAll);
+                .formLogin(form->form
+                        .loginPage("/login")
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout"));
 
         return http.build();
     }
