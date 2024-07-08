@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:a="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Home page</title>
+    <style>
+        .right-align {
+            text-align: right;
+        }
+        .right-align a {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
-  <p>Habibur Rahman</p>
+  <p>Hello, <spa sec:authentication="name">Username</spa></p>
+  <p>Welcome to our Application!</p>
+<!--  <p>Welcome back, <span th:text="${#authentication.name}">Username</span></p>-->
+<!--  <p>Welcome, <span sec:authentication="principal.fullname">Full name</span></p>-->
+  <div class="right-align">
+      <p></p>
+      <a th:if="${#authorization.expression('isAuthenticated')}" th:href="@{logout}">Logout</a>
+      <div th:if="${not #authorization.expression('isAuthenticated')}">
+          <a th:href="@{login}">Login</a>
+          <a th:href="@{register}">Register</a>
+      </div>
+  </div>
 </body>
 </html>

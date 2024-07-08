@@ -1,12 +1,13 @@
-package com.petproject.springsecurity;
+package com.petproject.springsecurity.service;
 
+import com.petproject.springsecurity.model.User;
+import com.petproject.springsecurity.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
@@ -22,6 +23,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .username(user.getEmail())
                 .password(user.getPassword())
                 .build();
+        System.out.println("user details:"+userDetails);
         return userDetails;
     }
 }

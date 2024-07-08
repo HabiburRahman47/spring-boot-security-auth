@@ -1,23 +1,21 @@
-package com.petproject.springsecurity;
+package com.petproject.springsecurity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@ResponseBody
 @RequestMapping
 public class HomeController {
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String index(){
-        return "hello habib";
+        return "index";
     }
 
     @GetMapping("/about")
     public String about(){
         return "about";
     }
+
 }
