@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>Home page</title>
     <style>
+        body{
+            margin: 70px;
+        }
         .right-align {
             text-align: right;
         }
@@ -16,8 +19,6 @@
 <body>
   <p>Hello, <spa sec:authentication="name">Username</spa></p>
   <p>Welcome to our Application!</p>
-<!--  <p>Welcome back, <span th:text="${#authentication.name}">Username</span></p>-->
-<!--  <p>Welcome, <span sec:authentication="principal.fullname">Full name</span></p>-->
   <div class="right-align">
       <p></p>
       <a th:if="${#authorization.expression('isAuthenticated')}" th:href="@{logout}">Logout</a>

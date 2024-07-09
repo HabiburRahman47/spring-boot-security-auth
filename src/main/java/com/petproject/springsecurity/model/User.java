@@ -31,9 +31,7 @@ public class User {
     @NotBlank(message = "Email is required")
     private String email;
 
-    @NotBlank(message = "FirstName is required")
-    @Size(min = 8, max = 20, message = "Password must be 8 =< characters")
-    private String password;
+   private String password;
 
     @NotBlank(message = "Country is required")
     private String country;

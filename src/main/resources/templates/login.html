@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Login page</title>
+    <style>
+        body{
+            margin: 70px;
+        }
+    </style>
 </head>
 <body>
     <h1>Login page</h1>
@@ -12,12 +17,15 @@
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
         </div>
+        <br>
         <div>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
+        <br>
         <button type="submit">Login</button>
     </form>
-    <p>New user?<a th:href="@{/register}">Register</a></p>
+    <br>
+    <p>New user? <a th:href="@{/register}">Register</a></p>
 </body>
 </html>
